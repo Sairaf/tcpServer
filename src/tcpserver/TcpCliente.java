@@ -14,5 +14,6 @@ public class TcpCliente {
     public static void main(String[] args) throws IOException {
         Socket cliente = new Socket(InetAddress.getByName("Http://www.google.com"), 36874);
         BufferedReader envioUsuario = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Bom dia");
     }
 }
