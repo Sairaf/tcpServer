@@ -12,8 +12,19 @@ import java.net.*;
  */
 public class TcpCliente {
     public static void main(String[] args) throws IOException {
-        Socket cliente = new Socket(InetAddress.getByName("Http://www.google.com"), 36874);
-        BufferedReader envioUsuario = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Bom dia");
+        System.out.print("Digite a url (ou ip) do site servidor: ");
+        BufferedReader entradaTexto = new BufferedReader(new InputStreamReader(System.in));
+        try{
+            String enderecoServidor = entradaTexto.readLine();
+            Socket cliente = new Socket(enderecoServidor, 39674);                 
+            System.out.print("Digite o texto a ser enviado para o servidor: ");
+            String requisicao = entradaTexto.readLine();
+            cliente.close();
+        }catch(ConnectException cExc){
+            System.out.println("Não foi possível contatar o servidor indicado");
+        }catch(UnknownHostException uHE){
+            System.out.println("OOps");
+        }
+
     }
 }
